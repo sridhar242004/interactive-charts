@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumViz AI - Revolutionary Data Analysis Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        @keyframes quantum-glow {
+            0% { box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff; }
+            50% { box-shadow: 0 0 20px #ff00ff, 0 0 35px #ff00ff, 0 0 50px #ff00ff; }
+            100% { box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff; }
+        }
+        .quantum-glow {
+            animation: quantum-glow 3s infinite;
+        }
+        .quantum-bg {
+            background: linear-gradient(45deg, #000033, #330033);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .quantum-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #00ffff, #ff00ff);
+            border-image-slice: 1;
+        }
+    </style>
+</head>
+<body class="quantum-bg text-white">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900">
+        <lottie-player src="Animation - 1723557504236.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-opacity-70 backdrop-filter backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#" class="text-3xl font-bold gradient-text">QuantumViz AI</a>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#features" class="gradient-text px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                    <a href="#demo" class="gradient-text px-3 py-2 rounded-md text-sm font-medium">Demo</a>
+                    <a href="#contact" class="quantum-glow bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-medium ml-3">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-40 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:pr-10">
+                    <h1 class="text-5xl font-bold mb-6 gradient-text animate__animated animate__fadeInUp">Quantum Leap in Data Analysis</h1>
+                    <p class="text-xl mb-8 animate__animated animate__fadeInUp animate__delay-1s">Experience the future of data visualization with QuantumViz AI's cutting-edge technology.</p>
+                    <a href="#demo" class="quantum-glow bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-cyan-500 hover:to-blue-600 transition duration-300 animate__animated animate__fadeInUp animate__delay-2s">Explore the Quantum Realm</a>
+                </div>
+                <div class="md:w-1/2 mt-10 md:mt-0">
+                    <lottie-player src="Animation - 1723557504236.json" background="transparent" speed="1" style="width: 100%; height: 400px;" loop autoplay></lottie-player>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Quantum-Powered Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="quantum-border p-6 rounded-lg quantum-glow">
+                    <lottie-player src="Animation - 1723557127815.json" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
+                    <h3 class="text-xl font-semibold mb-2 gradient-text">Quantum Neural Networks</h3>
+                    <p>Harness the power of quantum computing for unprecedented pattern recognition and data analysis.</p>
+                </div>
+                <div class="quantum-border p-6 rounded-lg quantum-glow">
+                    <lottie-player src="Animation - 1723557645947.json" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
+                    <h3 class="text-xl font-semibold mb-2 gradient-text">5D Hypergraph Visualization</h3>
+                    <p>Explore complex data relationships in five-dimensional space for deeper insights.</p>
+                </div>
+                <div class="quantum-border p-6 rounded-lg quantum-glow">
+                    <lottie-player src="Animation - 1723557900800.json"" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
+                    <h3 class="text-xl font-semibold mb-2 gradient-text">Temporal Anomaly Detection</h3>
+                    <p>Identify time-based anomalies with quantum-inspired algorithms for predictive analytics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Quantum Visualization Demo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="quantum-border p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Upload Data for Quantum Analysis</h3>
+                    <input type="file" id="csvFile" accept=".csv" class="mb-4 gradient-text">
+                    <button id="analyzeData" class="quantum-glow bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded hover:from-blue-600 hover:to-purple-600 transition duration-300">Analyze Data</button>
+                    <select id="algorithmSelect" class="w-full mt-4 bg-gray-800 text-white px-4 py-2 rounded">
+                        <option value="">Select Algorithm</option>
+                        <option value="quantum_neural_network">Quantum Neural Network</option>
+                        <option value="quantum_svm">Quantum Support Vector Machine</option>
+                        <option value="quantum_kmeans">Quantum K-Means</option>
+                        <option value="quantum_pca">Quantum Principal Component Analysis</option>
+                        <option value="quantum_random_forest">Quantum Random Forest</option>
+                        <option value="">Select Algorithm</option>
+                        <option value="neural_network">Neural Network</option>
+                        <option value="random_forest">Random Forest</option>
+                        <option value="svm">Support Vector Machine</option>
+                        <option value="k_means">K-Means Clustering</option>
+                        <option value="pca">Principal Component Analysis</option>
+                        <option value="decision_tree">Decision Tree</option>
+                        <option value="logistic_regression">Logistic Regression</option>
+                        <option value="naive_bayes">Naive Bayes</option>
+                        <option value="knn">K-Nearest Neighbors</option>
+                        <option value="lstm">Long Short-Term Memory (LSTM)</option>
+                    </select>
+                    <div class="grid grid-cols-2 gap-2 mt-4">
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="4d-scatter">4D Scatter</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="quantum-heatmap">Quantum Heatmap</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="time-series">Time Series</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="parallel-coordinates">Parallel Coordinates</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="violin-plot">Violin Plot</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="radar-chart">Radar Chart</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="bubble-chart">Bubble Chart</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="treemap">Treemap</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="quantum-heatmap">Quantum Heatmap</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="temporal-anomaly">Temporal Anomaly</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="quantum-lstm">Quantum LSTM</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="quantum-autoencoder">Quantum Autoencoder</button>
+                        <button class="viz-type-btn bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 transition duration-300" data-type="quantum-transformer">Quantum Transformer</button>
+
+                    </div>
+                    <div id="vizContainer" class="mt-4 bg-gray-800 p-4 rounded-lg" style="height: 500px;"></div>
+                </div>
+                <div class="quantum-border p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Quantum AI Analyst</h3>
+                    <div id="chatContainer" class="h-96 overflow-y-auto mb-4 bg-gray-800 p-4 rounded">
+                        <div class="chat-message assistant-message">
+                            Welcome to the Quantum realm! I'm your AI guide. Upload data and select an algorithm to begin our journey through multidimensional insights.
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <input type="text" id="userInput" class="flex-grow bg-gray-800 border border-gray-700 rounded-l px-4 py-2" placeholder="Ask about quantum insights...">
+                        <button id="sendMessage" class="quantum-glow bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-r hover:from-blue-600 hover:to-purple-600 transition duration-300">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Quantum Communication</h2>
+            <div class="max-w-2xl mx-auto">
+                <form id="contactForm" class="space-y-4">
+                    <div>
+                        <label for="name" class="block mb-2 text-cyan-300">Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 rounded border bg-gray-800 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-cyan-300">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 rounded border bg-gray-800 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2 text-cyan-300">Message</label>
+                        <textarea id="message" class="w-full px-4 py-2 rounded border bg-gray-800 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full hover:from-blue-600 hover:to-purple-600 transition duration-300">Send Quantum Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 gradient-text">QuantumViz AI</h3>
+                    <p>Revolutionizing data analysis with quantum-inspired AI and immersive visualizations.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 gradient-text">Quantum Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-cyan-300 transition duration-300">Features</a></li>
+                        <li><a href="#demo" class="hover:text-cyan-300 transition duration-300">Demo</a></li>
+                        <li><a href="#contact" class="hover:text-cyan-300 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 gradient-text">Quantum Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-cyan-300 transition duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-cyan-300 transition duration-300"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-cyan-300 transition duration-300"><i class="fab fa-github"></i></a>
+                        <a href="#" class="hover:text-cyan-300 transition duration-300"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>&copy; 2024 QuantumViz AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let currentData = null;
+        const vizContainer = document.getElementById('vizContainer');
+        const algorithmSelect = document.getElementById('algorithmSelect');
+        const chatContainer = document.getElementById('chatContainer');
+        const userInput = document.getElementById('userInput');
+        const sendMessage = document.getElementById('sendMessage');
+
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.display = 'none';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Analyze Data button functionality
+        document.getElementById('analyzeData').addEventListener('click', analyzeData);
+
+        // Visualization type buttons
+        document.querySelectorAll('.viz-type-btn').forEach(btn => {
+            btn.addEventListener('click', () => createVisualization(btn.dataset.type));
+        });
+
+        // Chat functionality
+        sendMessage.addEventListener('click', sendUserMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your quantum message! We will get back to you at the speed of entanglement.');
+            this.reset();
+        });
+
+        async function analyzeData() {
+            const file = document.getElementById('csvFile').files[0];
+            if (!file) {
+                updateAIChat("Please upload a CSV file first.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const csv = e.target.result;
+                currentData = await parseCSV(csv);
+                createVisualization('4d-scatter');
+                updateAIChat('Quantum analysis complete. What would you like to know about your dataset?');
+            };
+            reader.readAsText(file);
+        }
+
+        async function parseCSV(csv) {
+            const lines = csv.split('\n');
+            const headers = lines[0].split(',');
+            const data = lines.slice(1).map(line => {
+                const values = line.split(',');
+                return headers.reduce((obj, header, index) => {
+                    obj[header] = values[index];
+                    return obj;
+                }, {});
+            });
+            return { headers, data };
+        }
+
+        function createVisualization(type) {
+            if (!currentData) {
+                updateAIChat("Please upload and analyze data first.");
+                return;
+            }
+
+            const algorithm = algorithmSelect.value;
+            
+            switch (type) {
+                case '4d-scatter':
+                    create4DScatter(algorithm);
+                    break;
+                case 'quantum-heatmap':
+                    createQuantumHeatmap(algorithm);
+                    break;
+                case 'time-series':
+                    createTimeSeries(algorithm);
+                    break;
+                case 'parallel-coordinates':
+                    createParallelCoordinates(algorithm);
+                    break;
+                case 'violin-plot':
+                    createViolinPlot(algorithm);
+                    break;
+                case 'radar-chart':
+                    createRadarChart(algorithm);
+                    break;
+                case 'bubble-chart':
+                    createBubbleChart(algorithm);
+                    break;
+                case 'treemap':
+                    createTreemap(algorithm);
+                    break;
+                    case '5d-hypergraph':
+                    create5DHypergraph(algorithm);
+                    break;
+                case 'quantum-heatmap':
+                    createQuantumHeatmap(algorithm);
+                    break;
+                case 'temporal-anomaly':
+                    createTemporalAnomaly(algorithm);
+                    break;
+                case 'quantum-decision-tree':
+                    createQuantumDecisionTree(algorithm);
+                    break;
+                case 'entanglement-map':
+                    createEntanglementMap(algorithm);
+                    break;
+                case 'quantum-gan':
+                    createQuantumGAN(algorithm);
+                    break;
+                case 'quantum-lstm':
+                    createQuantumLSTM(algorithm);
+                    break;
+                case 'quantum-autoencoder':
+                    createQuantumAutoencoder(algorithm);
+                    break;
+                case 'quantum-transformer':
+                    createQuantumTransformer(algorithm);
+                    break;
+                case 'quantum-reinforcement':
+                    createQuantumReinforcement(algorithm);
+                    break;
+                default:
+                    vizContainer.innerHTML = '<p>Select a visualization type.</p>';
+            }
+        }
+
+        function create4DScatter(algorithm) {
+            const { headers, data } = currentData;
+            const x = data.map(d => parseFloat(d[headers[0]]));
+            const y = data.map(d => parseFloat(d[headers[1]]));
+            const z = data.map(d => parseFloat(d[headers[2]]));
+            const w = data.map(d => parseFloat(d[headers[3]]));
+
+            const trace = {
+                x: x,
+                y: y,
+                z: z,
+                mode: 'markers',
+                type: 'scatter3d',
+                marker: {
+                    size: 5,
+                    color: w,
+                    colorscale: 'Viridis',
+                    opacity: 0.8
+                },
+                text: data.map(d => `${headers[3]}: ${d[headers[3]]}`),
+                hoverinfo: 'text'
+            };
+
+            const layout = {
+                scene: {
+                    xaxis: {title: headers[0]},
+                    yaxis: {title: headers[1]},
+                    zaxis: {title: headers[2]}
+                },
+                margin: { l: 0, r: 0, b: 0, t: 0 },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' },
+                title: `4D Scatter Plot (${algorithm || 'No algorithm selected'})`
+            };
+
+            Plotly.newPlot(vizContainer, [trace], layout);
+        }
+
+        function createQuantumHeatmap(algorithm) {
+            const { headers, data } = currentData;
+            const x = headers.slice(0, 5);
+            const y = data.map(d => d[headers[0]]);
+            const z = data.map(d => x.map(header => parseFloat(d[header])));
+
+            const trace = {
+                x: x,
+                y: y,
+                z: z,
+                type: 'heatmap',
+                colorscale: 'Viridis'
+            };
+
+            const layout = {
+                title: `Quantum Heatmap (${algorithm || 'No algorithm selected'})`,
+                xaxis: { title: 'Features' },
+                yaxis: { title: headers[0] },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+
+            Plotly.newPlot(vizContainer, [trace], layout);
+        }
+
+      
+        function createTimeSeries(algorithm) {
+            const { headers, data } = currentData;
+            const x = data.map(d => d[headers[0]]);
+            const y = data.map(d => parseFloat(d[headers[1]]));
+
+            const trace = {
+                x: x,
+                y: y,
+                type: 'scatter',
+                mode: 'lines+markers',
+                line: { color: '#00ffff' }
+            };
+
+            const layout = {
+                title: `Time Series Analysis (${algorithm || 'No algorithm selected'})`,
+                xaxis: { title: headers[0] },
+                yaxis: { title: headers[1] },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+
+            Plotly.newPlot(vizContainer, [trace], layout);
+        }
+
+        function createParallelCoordinates(algorithm) {
+            const { headers, data } = currentData;
+            const dimensions = headers.map(header => ({
+                label: header,
+                values: data.map(d => parseFloat(d[header]))
+            }));
+
+            const trace = {
+                type: 'parcoords',
+                line: {
+                    color: 'blue',
+                    colorscale: 'Viridis'
+                },
+                dimensions: dimensions
+            };
+
+            const layout = {
+                title: `Parallel Coordinates (${algorithm || 'No algorithm selected'})`,
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+
+            Plotly.newPlot(vizContainer, [trace], layout);
+        }
+
+        
+
+        function createViolinPlot(algorithm) {
+            const { headers, data } = currentData;
+            const traces = headers.slice(1).map(header => ({
+                type: 'violin',
+                y: data.map(d => parseFloat(d[header])),
+                name: header,
+                box: { visible: true },
+                line: { color: '#00ffff' },
+                meanline: { visible: true }
+            }));
+
+            const layout = {
+                title: `Violin Plot (${algorithm || 'No algorithm selected'})`,
+                yaxis: { zeroline: false },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+
+            Plotly.newPlot(vizContainer, traces, layout);
+        }
+
+        
+
+        function createRadarChart(algorithm) {
+            const { headers, data } = currentData;
+            const trace = {
+                type: 'scatterpolar',
+                r: headers.slice(1).map(header => data.reduce((sum, d) => sum + parseFloat(d[header]), 0) / data.length),
+                theta: headers.slice(1),
+                fill: 'toself',
+                name: 'Average Values'
+            };
+
+            const layout = {
+                polar: {
+                    radialaxis: {
+                        visible: true,
+                        range: [0, Math.max(...trace.r) * 1.2]
+                    }
+                },
+                title: `Radar Chart (${algorithm || 'No algorithm selected'})`,
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+
+            Plotly.newPlot(vizContainer, [trace], layout);
+        }
+
+        function createBubbleChart(algorithm) {
+            const { headers, data } = currentData;
+            const trace = {
+                x: data.map(d => parseFloat(d[headers[0]])),
+                y: data.map(d => parseFloat(d[headers[1]])),
+                mode: 'markers',
+                marker: {
+                    size: data.map(d => parseFloat(d[headers[2]]) * 10),
+                    color: data.map(d => parseFloat(d[headers[3]])),
+                    colorscale: 'Viridis',
+                    showscale: true
+                },
+                text: data.map(d => `${headers[2]}: ${d[headers[2]]}, ${headers[3]}: ${d[headers[3]]}`),
+                hoverinfo: 'text'
+            };
+
+            const layout = {
+                title: `Bubble Chart (${algorithm || 'No algorithm selected'})`,
+                xaxis: { title: headers[0] },
+                yaxis: { title: headers[1] },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+
+            Plotly.newPlot(vizContainer, [trace], layout);
+        }
+
+        function createTreemap(algorithm) {
+            const { headers, data } = currentData;
+            const values = data.map(d => parseFloat(d[headers[1]]));
+            const labels = data.map(d => d[headers[0]]);
+
+            const trace = {
+                type: "treemap",
+                values: values,
+                labels: labels,
+                parents: new Array(values.length).fill(""),
+                textinfo: "label+value+percent parent"
+            };
+
+            const layout = {
+                title: `Treemap (${algorithm || 'No algorithm selected'})`,
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+
+            Plotly.newPlot(vizContainer, [trace], layout);
+        }
+       
+        function create5DHypergraph(algorithm) {
+            vizContainer.innerHTML = '';
+            
+            const fileInput = document.getElementById('csvFile');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                vizContainer.innerHTML = '<p>Please upload a CSV file first.</p>';
+                return;
+            }
+            
+            parseCSV(file, function(data) {
+                const headers = Object.keys(data[0]);
+                
+                if (headers.length < 5) {
+                    vizContainer.innerHTML = '<p>CSV file must contain at least 5 columns for 5D Hypergraph visualization.</p>';
+                    return;
+                }
+                
+                const nodes = data.map(d => ({
+                    id: d[headers[0]],
+                    x: parseFloat(d[headers[1]]),
+                    y: parseFloat(d[headers[2]]),
+                    z: parseFloat(d[headers[3]]),
+                    size: parseFloat(d[headers[4]])
+                }));
+                
+                const edges = data.map(d => ({
+                    source: d[headers[0]],
+                    target: d[headers[1]],
+                    weight: parseFloat(d[headers[4]])
+                }));
+                
+                const nodeTrace = {
+                    x: nodes.map(n => n.x),
+                    y: nodes.map(n => n.y),
+                    mode: 'markers',
+                    marker: {
+                        size: nodes.map(n => n.size * 10),
+                        color: nodes.map(n => n.z),
+                        colorscale: 'Viridis',
+                        showscale: true
+                    },
+                    text: nodes.map(n => `ID: ${n.id}, Size: ${n.size}`),
+                    hoverinfo: 'text'
+                };
+                
+                const edgeTraces = edges.map(edge => {
+                    const sourceNode = nodes.find(n => n.id === edge.source);
+                    const targetNode = nodes.find(n => n.id === edge.target);
+                    
+                    return {
+                        type: 'scatter',
+                        mode: 'lines',
+                        x: [sourceNode.x, targetNode.x],
+                        y: [sourceNode.y, targetNode.y],
+                        line: {
+                            width: edge.weight,
+                            color: 'rgba(0,0,0,0.5)'
+                        },
+                        hoverinfo: 'none'
+                    };
+                });
+                
+                const allTraces = [nodeTrace, ...edgeTraces];
+                
+                const layout = {
+                    title: `5D Hypergraph (${algorithm || 'No algorithm selected'})`,
+                    xaxis: { title: headers[1] },
+                    yaxis: { title: headers[2] },
+                    paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)',
+                    font: { color: '#ffffff' }
+                };
+                
+                Plotly.newPlot(vizContainer, allTraces, layout);
+            });
+        }
+        
+        function createQuantumHeatmap(algorithm) {
+            const { headers, data } = currentData;
+            const x = headers.slice(0, 5);
+            const y = data.map(d => d[headers[0]]);
+            const z = data.map(d => x.map(header => parseFloat(d[header])));
+        
+            const trace = {
+                x: x,
+                y: y,
+                z: z,
+                type: 'heatmap',
+                colorscale: 'Viridis'
+            };
+        
+            const layout = {
+                title: `Quantum Heatmap (${algorithm || 'No algorithm selected'})`,
+                xaxis: { title: 'Features' },
+                yaxis: { title: headers[0] },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+        
+            Plotly.newPlot(vizContainer, [trace], layout);
+        }
+        
+        function createTemporalAnomaly(algorithm) {
+            const { headers, data } = currentData;
+            const x = data.map(d => new Date(d[headers[0]]));
+            const y = data.map(d => parseFloat(d[headers[1]]));
+        
+            const movingAverage = calculateMovingAverage(y, 5);
+            const anomalies = detectAnomalies(y, movingAverage);
+        
+            const mainTrace = {
+                x: x,
+                y: y,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Original Data'
+            };
+        
+            const maTrace = {
+                x: x,
+                y: movingAverage,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Moving Average',
+                line: { color: 'red' }
+            };
+        
+            const anomalyTrace = {
+                x: anomalies.map(i => x[i]),
+                y: anomalies.map(i => y[i]),
+                type: 'scatter',
+                mode: 'markers',
+                name: 'Anomalies',
+                marker: { color: 'yellow', size: 10 }
+            };
+        
+            const layout = {
+                title: `Temporal Anomaly Detection (${algorithm || 'No algorithm selected'})`,
+                xaxis: { title: headers[0] },
+                yaxis: { title: headers[1] },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+        
+            Plotly.newPlot(vizContainer, [mainTrace, maTrace, anomalyTrace], layout);
+        }
+        
+        function createQuantumDecisionTree(algorithm) {
+            const treeData = {
+                name: "Root",
+                children: [
+                    {
+                        name: "Decision 1",
+                        children: [
+                            { name: "Outcome 1A" },
+                            { name: "Outcome 1B" }
+                        ]
+                    },
+                    {
+                        name: "Decision 2",
+                        children: [
+                            { name: "Outcome 2A" },
+                            { name: "Outcome 2B" }
+                        ]
+                    }
+                ]
+            };
+        
+            // Define the dimensions of the container
+            const width = vizContainer.clientWidth;
+            const height = Math.min(500, vizContainer.clientHeight);
+        
+            const svg = d3.select(vizContainer)
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+        
+            // Add a group element to hold the tree, with padding for margins
+            const g = svg.append("g")
+                .attr("transform", `translate(0,0)`);
+        
+            // Create the tree layout and scale it to fit within the container
+            const tree = d3.tree().size([width, height]);
+            const root = d3.hierarchy(treeData);
+            tree(root);
+        
+            // Calculate the necessary scaling factor to fit the tree within the container
+            const maxX = Math.max(...root.descendants().map(d => d.x));
+            const maxY = Math.max(...root.descendants().map(d => d.y));
+            const scale = Math.min(width / maxX, height / maxY);
+        
+            // Apply the scaling factor and center the tree
+            g.attr("transform", `translate(${(width - maxX * scale) / 2}, ${(height - maxY * scale) / 2}) scale(${scale})`);
+        
+            // Create the links (edges) between nodes
+            const link = g.selectAll(".link")
+                .data(root.links())
+                .enter().append("path")
+                .attr("class", "link")
+                .attr("d", d3.linkVertical()
+                    .x(d => d.x)
+                    .y(d => d.y))
+                .style("fill", "none")
+                .style("stroke", "#00ffff");
+        
+            // Create the nodes (circles) and labels
+            const node = g.selectAll(".node")
+                .data(root.descendants())
+                .enter().append("g")
+                .attr("class", d => "node" + (d.children ? " node--internal" : " node--leaf"))
+                .attr("transform", d => `translate(${d.x},${d.y})`);
+        
+            node.append("circle")
+                .attr("r", 10)
+                .style("fill", "#ff00ff");
+        
+            node.append("text")
+                .attr("dy", ".35em")
+                .attr("x", d => d.children ? -13 : 13)
+                .style("text-anchor", d => d.children ? "end" : "start")
+                .text(d => d.data.name)
+                .style("fill", "#ffffff");
+        }
+        
+        
+        
+        function createEntanglementMap(algorithm) {
+            const { headers, data } = currentData;
+            const nodes = data.map((d, i) => ({ id: i, name: d[headers[0]] }));
+            const links = [];
+        
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    if (Math.random() > 0.7) {
+                        links.push({ source: i, target: j });
+                    }
+                }
+            }
+        
+            const width = vizContainer.clientWidth;
+            const height = 500;
+        
+            const svg = d3.select(vizContainer)
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+        
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id))
+                .force("charge", d3.forceManyBody())
+                .force("center", d3.forceCenter(width / 2, height / 2));
+        
+            const link = svg.append("g")
+                .selectAll("line")
+                .data(links)
+                .enter().append("line")
+                .style("stroke", "#00ffff");
+        
+            const node = svg.append("g")
+                .selectAll("circle")
+                .data(nodes)
+                .enter().append("circle")
+                .attr("r", 5)
+                .style("fill", "#ff00ff");
+        
+            node.append("title")
+                .text(d => d.name);
+        
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+        
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+            });
+        }
+        
+        function createQuantumGAN(algorithm) {
+            vizContainer.innerHTML = '<canvas id="ganCanvas"></canvas>';
+            const canvas = document.getElementById('ganCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = vizContainer.clientWidth;
+            canvas.height = 500;
+        
+            function drawQuantumState(x, y, size, phase) {
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, 2 * Math.PI);
+                ctx.fillStyle = `hsl(${phase * 360}, 100%, 50%)`;
+                ctx.fill();
+            }
+        
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+                for (let i = 0; i < 100; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const size = Math.random() * 5 + 2;
+                    const phase = Math.random();
+                    drawQuantumState(x, y, size, phase);
+                }
+        
+                requestAnimationFrame(animate);
+            }
+        
+            animate();
+        }
+        
+        function createQuantumLSTM(algorithm) {
+            const { headers, data } = currentData;
+            const x = data.map((d, i) => i);
+            const y = data.map(d => parseFloat(d[headers[1]]));
+        
+            const trace = {
+                x: x,
+                y: y,
+                type: 'scatter',
+                mode: 'lines+markers',
+                name: 'Original Data'
+            };
+        
+            const predictedY = y.map(val => val + (Math.random() - 0.5) * 10);
+            const predictedTrace = {
+                x: x,
+                y: predictedY,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'LSTM Prediction',
+                line: { dash: 'dot', color: 'red' }
+            };
+        
+            const layout = {
+                title: `Quantum LSTM (${algorithm || 'No algorithm selected'})`,
+                xaxis: { title: 'Time Step' },
+                yaxis: { title: headers[1] },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+        
+            Plotly.newPlot(vizContainer, [trace, predictedTrace], layout);
+        }
+        
+        function createQuantumAutoencoder(algorithm) {
+            const { headers, data } = currentData;
+            const x = data.map(d => parseFloat(d[headers[1]]));
+            const y = data.map(d => parseFloat(d[headers[2]]));
+        
+            const trace = {
+                x: x,
+                y: y,
+                mode: 'markers',
+                type: 'scatter',
+                name: 'Original Data'
+            };
+        
+            const encodedX = x.map(val => val + (Math.random() - 0.5) * 0.5);
+            const encodedY = y.map(val => val + (Math.random() - 0.5) * 0.5);
+        
+            const encodedTrace = {
+                x: encodedX,
+                y: encodedY,
+                mode: 'markers',
+                type: 'scatter',
+                name: 'Encoded Data',
+                marker: { color: 'red' }
+            };
+        
+            const layout = {
+                title: `Quantum Autoencoder (${algorithm || 'No algorithm selected'})`,
+                xaxis: { title: headers[1] },
+                yaxis: { title: headers[2] },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+        
+            Plotly.newPlot(vizContainer, [trace, encodedTrace], layout);
+        }
+        
+        function createQuantumTransformer(algorithm) {
+            const { headers, data } = currentData;
+            const x = data.map((d, i) => i);
+            const y = data.map(d => parseFloat(d[headers[1]]));
+        
+            const trace = {
+                x: x,
+                y: y,
+                type: 'scatter',
+                mode: 'lines+markers',
+                name: 'Original Data'
+            };
+        
+            const transformedY = y.map(val => val * (1 + Math.sin(val / 10) * 0.2));
+            const transformedTrace = {
+                x: x,
+                y: transformedY,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Transformed Data',
+                line: { color: 'red' }
+            };
+        
+            const layout = {
+                title: `Quantum Transformer (${algorithm || 'No algorithm selected'})`,
+                xaxis: { title: 'Time Step' },
+                yaxis: { title: headers[1] },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                font: { color: '#ffffff' }
+            };
+        
+            Plotly.newPlot(vizContainer, [trace, transformedTrace], layout);
+        }
+        
+        function createQuantumReinforcement(algorithm) {
+            vizContainer.innerHTML = '<canvas id="reinforcementCanvas"></canvas>';
+            const canvas = document.getElementById('reinforcementCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = vizContainer.clientWidth;
+            canvas.height = 500;
+        
+            const gridSize = 20;
+            const cellSize = Math.min(canvas.width, canvas.height) / gridSize;
+        
+            function drawGrid() {
+                for (let i = 0; i < gridSize; i++) {
+                    for (let j = 0; j < gridSize; j++) {
+                        ctx.strokeStyle = '#333';
+                        ctx.strokeRect(i * cellSize, j * cellSize, cellSize, cellSize);
+                    }
+                }
+            }
+        
+            function drawAgent(x, y) {
+                ctx.fillStyle = '#ff00ff';
+                ctx.beginPath();
+                ctx.arc(x * cellSize + cellSize / 2, y * cellSize + cellSize / 2, cellSize / 3, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        
+            function drawReward(x, y) {
+                ctx.fillStyle = '#00ffff';
+                ctx.fillRect(x * cellSize + cellSize / 4, y * cellSize + cellSize / 4, cellSize / 2, cellSize / 2);
+            }
+        
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawGrid();
+        
+                const agentX = Math.floor(Math.random() * gridSize);
+                const agentY = Math.floor(Math.random() * gridSize);
+                drawAgent(agentX, agentY);
+        
+                for (let i = 0; i < 5; i++) {
+                    const rewardX = Math.floor(Math.random() * gridSize);
+                    const rewardY = Math.floor(Math.random() * gridSize);
+                    drawReward(rewardX, rewardY);
+                }
+        
+                requestAnimationFrame(animate);
+            }
+        
+            animate();
+        }
+        
+        // Helper functions for Temporal Anomaly Detection
+        function calculateMovingAverage(data, window) {
+            const result = [];
+            for (let i = 0; i < data.length; i++) {
+                const start = Math.max(0, i - window + 1);
+                const end = i + 1;
+                const windowData = data.slice(start, end);
+                const average = windowData.reduce((sum, val) => sum + val, 0) / windowData.length;
+                result.push(average);
+            }
+            return result;
+        }
+        
+        function detectAnomalies(data, movingAverage, threshold = 2) {
+            const anomalies = [];
+            for (let i = 0; i < data.length; i++) {
+                const difference = Math.abs(data[i] - movingAverage[i]);
+                const stdDev = calculateStandardDeviation(data);
+                if (difference > threshold * stdDev) {
+                    anomalies.push(i);
+                }
+            }
+            return anomalies;
+        }
+        
+        function calculateStandardDeviation(data) {
+            const mean = data.reduce((sum, val) => sum + val, 0) / data.length;
+            const squaredDifferences = data.map(val => Math.pow(val - mean, 2));
+            const variance = squaredDifferences.reduce((sum, val) => sum + val, 0) / data.length;
+            return Math.sqrt(variance);
+        }
+        
+
+        function changeVisualization(type) {
+            createVisualization(type);
+        }
+
+
+        function sendUserMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                addMessageToChat('user', message);
+                processUserMessage(message);
+                userInput.value = '';
+            }
+        }
+
+        function addMessageToChat(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message', `${sender}-message`, 'mb-2', 'p-2', 'rounded');
+            messageElement.classList.add(sender === 'user' ? 'bg-blue-900' : 'bg-gray-700');
+            messageElement.textContent = message;
+            chatContainer.appendChild(messageElement);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function updateAIChat(message) {
+            addMessageToChat('assistant', message);
+        }
+
+        function processUserMessage(message) {
+            if (!currentData) {
+                updateAIChat("I apologize, but no data has been uploaded yet. Please upload a CSV file and analyze it first.");
+                return;
+            }
+
+            const { headers, data } = currentData;
+            const algorithm = algorithmSelect.value;
+
+            if (message.toLowerCase().includes('how many rows')) {
+                updateAIChat(`The dataset contains ${data.length} rows.`);
+            } else if (message.toLowerCase().includes('how many columns') || message.toLowerCase().includes('how many features')) {
+                updateAIChat(`The dataset contains ${headers.length} columns/features: ${headers.join(', ')}.`);
+            } else if (message.toLowerCase().includes('summary') || message.toLowerCase().includes('describe')) {
+                const summary = headers.map(header => {
+                    const values = data.map(d => parseFloat(d[header])).filter(v => !isNaN(v));
+                    const avg = values.reduce((a, b) => a + b, 0) / values.length;
+                    const min = Math.min(...values);
+                    const max = Math.max(...values);
+                    return `${header}: Avg=${avg.toFixed(2)}, Min=${min}, Max=${max}`;
+                });
+                updateAIChat(`Here's a summary of the numerical features:\n${summary.join('\n')}`);
+            } else if (message.toLowerCase().includes('algorithm')) {
+                if (algorithm) {
+                    updateAIChat(`The currently selected algorithm is ${algorithm}. This algorithm is being used to process and analyze the data before visualization.`);
+                } else {
+                    updateAIChat("No algorithm is currently selected. You can choose an algorithm from the dropdown menu to apply specific data processing techniques before visualization.");
+                }
+            } else if (message.toLowerCase().includes('visualize') || message.toLowerCase().includes('chart') || message.toLowerCase().includes('graph')) {
+                updateAIChat("To visualize the data, you can click on any of the visualization buttons above the chart area. Each button will create a different type of chart or graph based on your data and the selected algorithm.");
+            } else if (message.toLowerCase().includes('help') || message.toLowerCase().includes('guide')) {
+                updateAIChat("Here are some things you can do:\n1. Upload a CSV file and click 'Analyze Data'\n2. Select an algorithm from the dropdown menu\n3. Choose a visualization type by clicking on the chart buttons\n4. Ask me about the number of rows, columns, or for a data summary\n5. Inquire about the current algorithm or visualization options");
+            } else {
+                updateAIChat("I'm sorry, I couldn't understand your question. You can ask about the number of rows, columns, request a summary of the data, inquire about the current algorithm, or ask for help with visualizations.");
+            }
+        }
+    </script>
+</body>
+</html>
